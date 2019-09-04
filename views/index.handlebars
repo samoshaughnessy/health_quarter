@@ -1,0 +1,101 @@
+<script type='text/javascript' src="../js/common.js"></script>
+<script type='text/javascript' src="../js/index.js"></script>
+
+<!-- Banner Background Image -->
+<section>
+    <div class="bannerbackground">
+        <div>
+            <p>uncover your healthy lifestyle</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Listing by categories, where the grid format begins-->
+
+<section class="grid">
+    <div class="title">
+        <div>
+            <span>FOOD</span>
+            <a href="/tag/15" class="viewall">VIEW ALL</a>
+
+        </div>
+    </div>
+
+    <div class="wrapper" id="1stTagList">
+        {{!-- index.js > $.get(`/api/rest/tag/1`) --}}
+    </div>
+
+    <div class="title">
+        <div>
+            <span>DRINKS</span>
+            <a href="/tag/16" class="viewall">VIEW ALL</a>
+
+        </div>
+    </div>
+
+    <div class="wrapper" id="2ndTagList">
+        {{!-- index.js > $.get(`/api/rest/tag/10`) --}}
+    </div>
+
+    <div class="title">
+        <div>
+            <span>MEAL PLANS</span>
+            <a href="/mealplans" class="viewall">VIEW ALL</a>
+
+        </div>
+    </div>
+
+    <div class="wrapper" id="mealPlanList">
+        {{!-- index.js > $.get(`/api/meal`) --}}
+    </div>
+
+    <div class="title">
+        <div>
+            <span>RECIPES</span>
+            <a href="/recipeFinder" class="viewall">VIEW ALL</a>
+
+        </div>
+    </div>
+
+    <div class="wrapper" id="RecipeList">
+        {{!-- index.js > $.get(`/api/rest/tag/1`) --}}
+    </div>
+
+</section>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+    initialRecipe({{{ data }}});
+
+    function initialRecipe(recipeD) {
+        $(() => { // Get data from api
+            console.log(recipeD, 'OKAY')
+            recipeD.results.forEach(e => {
+                $('#RecipeList').append(recipe(e.title, e.image, e.id, e.servings));
+            });
+        });
+        const recipe = (title, image, id, serving) => {
+            return `
+            <div class="innerwrapper" id="indexRecipeStyle">
+                <div class="name">
+                    <a class="learnMore" href="https://spoonacular.com/${title}-${id}">${title}</a>
+                </div>
+                  <div class="image">
+                                <img src="${image}">
+                            </div>
+            <div class="serving-size">
+                <p>${serving}</p>
+            </div>`
+        };
+    }
+
+</script>

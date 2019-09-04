@@ -1,0 +1,185 @@
+#tag-container {
+    margin-top: 100px;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 3px 12px;
+    margin: 10px;
+    border: 2px solid #000;
+}
+
+.tag a:hover {
+    text-decoration: none;
+    color: #6A9605;
+}
+
+.bannerimage {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-image: url("../images/restaurants/3_3rds_main.jpg");
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    background-position: center top;
+    z-index:0;
+}
+
+.bannerimage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-div {
+    padding: 0;
+    position: relative;
+}
+
+#restName {
+    position: absolute;
+    color: white;
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    bottom: 30px;
+}
+
+
+#favBtn {
+    display: inline-block;
+    font-size: 15px;
+    padding: 3px 12px;
+    margin: 10px;
+    border: 2px solid #000;
+    margin: 20px 0 40px 0;
+}
+
+.sub-heading {
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    margin-top: 30px;
+}
+
+.map {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+iframe {
+    margin: 20px 0 40px 0;
+}
+
+.heading {
+    display: inline-block;
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    padding: 3px 12px;
+    border: 2px solid #6A9605;
+}
+
+.dish-row,
+.meal-row {
+    margin-bottom: 40px;
+}
+
+#dishName,
+#mealName {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+}
+
+.dish-img,
+.meal-img {
+    max-width:100%;
+    max-height:100%;
+    border: 1px solid #000;
+}
+
+.dish-container,
+.meal-container {
+    padding: 0 10px;
+}
+
+.dish-info-container,
+.meal-info-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    color: #525050;
+}
+
+.placeholderMsg {
+    color: #525050;
+    padding: 30px;
+    border: 1px solid #000;
+    margin: 60px;
+}
+
+
+textarea {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.rating-row {
+    display: flex;
+    justify-content: space-between;
+}
+.rating-group {
+    display: inline-block;
+}
+.rating-group span {
+    vertical-align: middle;
+}
+
+.user-review {
+    margin: 20px 0 25px 0;
+}
+
+.date {
+    color: #a09e9e;
+    font-weight: 400;
+    margin: 0 10px;
+}
+
+.user-comment {
+    padding: 10px 0;
+    color: black;
+}
+
+.avatar {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-info {
+    vertical-align: middle;
+}
+
+#user-name {
+    margin: 0 15px;
+    color: black;
+}
+
+.fa-star {
+    color: #f3dc0b;
+}
+
+.fa-star-o {
+    color: #c5c4c4;
+
+}
+
+#submitReview {
+    border-width: 0;
+    background-color: #6A9605;
+    border-radius: 10px;
+    padding: 10px 30px;
+}

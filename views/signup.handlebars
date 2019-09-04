@@ -1,0 +1,49 @@
+<script type='text/javascript' src="../js/common.js"></script>
+<script type='text/javascript' src="/js/signup.js"></script>
+
+<!-- Banner Background Image -->
+<section>
+    <div class="signupbannerbackground">
+        <div><p>SIGN UP</p></div>
+    </div>
+</section> 
+
+<section class="grid">
+    <div class="container">
+        <div class="row">
+            <div class="container col-10 d-flex justify-content-center">
+                <form action="/signup" method="post" enctype="multipart/form-data">
+                <h4>Join us to receive personalised content</h4>
+                    <div class="form-group">
+                        <label for="email">EMAIL</label>
+                        <input type="text" class="form-control" name="username" id="email" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">PASSWORD</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nickname">NAME</label>
+                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile pic">PROFILE PICTURE</label>
+                        <div></div>
+                        <input type="file" accept="image/*" name="profilePic" id="profilePic">
+                    </div>
+                    <div class="form-group interest">
+                        <label for="tag-list">INTEREST</label>
+                        <div id="tag-list"></div>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        <button class="btn btn-primary" id="submitBtn" type="submit" value="Sign up"/>SIGN UP</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+

@@ -1,0 +1,370 @@
+/*
+  ========================================
+  Overall styles
+  ========================================
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #6A9605;
+    font: 300 16px/22px 'futura', helvetica, sans-serif;
+    background-color: #fff;
+    margin: 0;
+}
+
+body a {
+    color: #6A9605;
+}
+
+body a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+/*
+  ========================================
+  Nav Bar
+  ========================================
+*/
+
+.topnav {
+    overflow: hidden;
+    background-color: white;
+    position: fixed;
+    /* Set the navbar to fixed position */
+    top: 0;
+    /* Position the navbar at the top of the page */
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 9999;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #6B9606;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 2px 2px;
+    letter-spacing: 2px;
+    font-family: helvetica;
+    font-weight: 400;
+}
+
+.topnav a:hover {
+    border-bottom: 2px solid #ECB02A;
+    padding-bottom: 5px;
+    margin: 2px 2px;
+}
+
+#logo {
+    font-size: 22px;
+    color: black;
+    letter-spacing: 3px;
+    font-family: 'Kaushan Script';
+}
+
+#logo:hover {
+    border: none;
+}
+
+.active {
+    background-color: white;
+    color: black;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .topnav.responsive {
+        position: relative;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+.bannerbackground {
+    margin-top: 50px;
+    background-image: url("/images/decor/homebanner.jpg");
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+}
+
+
+@media screen and (max-width: 800px) {
+    .bannerbackground {
+        width: 100%;
+        height: 400px;
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed;
+    }
+}
+
+.bannerbackground p {
+    font-size: 40px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    color: white;
+    text-shadow: 3px 3px black;
+    padding-top: 95px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/*
+  ========================================
+  Grid
+  ========================================
+*/
+
+.grid {
+    margin: 50px;
+}
+
+.viewall {
+    color: black;
+}
+
+.title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left: 80px;
+}
+
+.title span {
+    border: 2px solid black;
+    padding: 5px 5px 5px 8px;
+    letter-spacing: 4px;
+    font-weight: 400;
+}
+
+.title a {
+    float: right;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 50px;
+    }
+}
+
+.innerwrapper {
+    display: grid;
+    grid-template-areas: 'name name name name name heart' 'image image image image image image' 'image image image image image image' 'image image image image image image' 'price price . . stars stars' 'tags tags tags tags tags viewmore';
+    grid-gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.innerwrapper {
+    text-align: left;
+}
+
+.innerwrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mealplanwrapper {
+    display: grid;
+    grid-template-areas: 'name name name name name heart' 'image image image image image image' 'image image image image image image' 'image image image image image image' '. . . . . link';
+    grid-gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mealplanwrapper {
+    text-align: left;
+}
+
+.mealplanwrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name {
+    grid-area: name;
+    letter-spacing: 3px;
+    color: #6B9606;
+}
+
+.heart {
+    grid-area: heart;
+    text-align: right;
+    color: red;
+}
+
+.image {
+    grid-area: image;
+}
+
+.price {
+    grid-area: price;
+    color: black;
+}
+
+.stars {
+    grid-area: stars;
+    text-align: right;
+    color: #D58D05;
+}
+
+.tags {
+    grid-area: tags;
+    font-size: 14px;
+}
+
+.viewmore {
+    grid-area: viewmore;
+    text-align: right;
+}
+
+.viewmore a {
+    color: black;
+}
+
+.link {
+    grid-area: link;
+    text-align: right;
+}
+
+.link a {
+    color: black;
+}
+
+.about {
+    grid-area: about;
+}
+/*
+  ========================================
+  Favorites
+  ========================================
+*/
+
+.favwrapper {
+    display: grid;
+    grid-template-columns: 25% 1fr 1fr 1fr 1fr 25%;
+    margin: 50px;
+    text-align: center;
+    letter-spacing: 3px;
+    grid-gap: 10px;
+}
+
+.x, .y, .z, .w {
+    border: 2px solid black;
+    padding: 5px 5px 5px 8px;
+    font-weight: 400;
+}
+
+.favtitle {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.favtitle span {
+    border: 2px solid black;
+    padding: 5px 5px 5px 8px;
+    letter-spacing: 4px;
+    font-weight: 400;
+}
+
+/*
+  ========================================
+  Footer
+  ========================================
+*/
+
+
+
+.footerwrapper {
+    display: grid;
+    grid-template-areas: '. . . . .' 'a b c d e' '. . . . .';
+    grid-template-rows: 20% 60% 20%;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #ECB02A;
+    color: white;
+    text-align: center;
+    height: 240px;
+    line-height: 2.5;
+    margin-top: 100px;
+    padding-top: 20px;
+}
+
+.footerwrapper a {
+    color: white;
+}
+
+.a {
+    grid-area: a;
+    font-size: 40px;
+    color: black;
+    letter-spacing: 3px;
+    font-family: 'Kaushan Script';
+}
+
+.b {
+    grid-area: b;
+}
+
+.c {
+    grid-area: c;
+}
+
+.d {
+    grid-area: d;
+}
+
+.e {
+    grid-area: e;
+    font-size: 40px;
+}
+
+.copyright {
+    background-color: #D58D05;
+    color: lightgrey;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}

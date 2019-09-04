@@ -1,0 +1,189 @@
+
+
+<section>
+    <div class="recipebannerbackground">
+        <div><p>RECIPES</p></div>
+    </div>
+</section>
+
+
+<div class="recipeFinderBG">
+    <h2 class='rftitle'>Find your recipes</h2>
+    <p class='rftitle' id='append'>If you become a member you can save your
+        most enjoyable dishes for later</p>
+
+    <!--This is the template for the load in page-->
+    <template id="loading template">
+        <div class="loadbuttons">
+            <p>
+                <button class="searchRecipeButton" id="search-cal"
+                    name="search-cal">Search by Calorie</button>
+            </p>
+            <p>
+                <button class="searchRecipeButton" id="search-tag"
+                    name="search-tag">Search by Tag</button>
+            </p>
+            <p>
+                <button class="searchRecipeButton" id="search-ing"
+                    name="search-ing">Search by Ingredients</button>
+            </p>
+
+        </div>
+    </template>
+
+    <!--Search by calorie-->
+
+    <template id="search-temp-cal">
+        <div class="ui block">
+            <div class="ui grid">
+                <h2 class" page-header">Search for Recipes:</h2>
+                <form action="/searchcal" method="post">
+                    <div class="ui form">
+                        <div class="field">
+                            <label>Serch by Calorie:</label>
+                            <br> Minimum Calories:
+                            <input type="text" name="minCalorie"
+                                value="150">
+                            <br> Maximum Calories:
+                            <input type="text" name="maxCalorie"
+                                value="600">
+                            <br> Number of search requests (between 1-5):
+                            <input type="number" name="quantity" min="1"
+                                max="5">
+                        </div>
+                    </div>
+                    <br>
+                    <p>
+                        <button name="submit" class="searchRecipeButton"
+                            type="submit">Find Recipe(s)</button>
+                    </p>
+                    <br>
+                    <br>
+                </div>
+            </form>
+        </div>
+    </template>
+
+</div>
+
+
+<!--Search by tag-->
+<template id="search-temp-tag">
+    <div class="ui block">
+        <div class="ui grid">
+            <h2 class" page-header">Search for Recipes:</h2>
+            <form action="/searchtag" method="post">
+                <div class="ui form">
+                    <div class='field'>
+                        Number of search requests (between 1-5):
+                        <input type="number" name="quantity" min="1"
+                            max="5"> Queries:
+                        <br>
+                        Popular searches include: cheap, dairy free, gluten
+                        free, ketogenic, low fodmap, sustainable, vegan,
+                        vegetarian, whole 30
+                        <br>
+                        <input type="text" name="tag1" value="">
+                        <input type="text" name="tag2" value="">
+                        <input type="text" name="tag3" value="">
+                        <input type="text" name="tag4" value="">
+                        <input type="text" name="tag5" value="">
+                    </div>
+                </div>
+                <br>
+                <p>
+                    <button name="submit" id="findRecipe"
+                        class="searchRecipeButton" type="submit">Find
+                        Recipe(s)</button>
+                </p>
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+
+</template>
+
+<template id="search-temp-ing">
+    <div class="ui block">
+        <div class="ui grid">
+            <h2 class" page-header">Search for Recipes:</h2>
+            <form action="/searching" method="post">
+                <div class="ui form">
+                    <div class='field'>
+                        Number of search requests (between 1-5):
+                        <input type="number" name="quantity" min="1"
+                            max="5"> Queries:
+                        <br>
+                        Search ingredients that you have
+                        <br>
+                        <input type="text" name="tag1" value="">
+                        <input type="text" name="tag2" value="">
+                        <input type="text" name="tag3" value="">
+                        <input type="text" name="tag4" value="">
+                        <input type="text" name="tag5" value="">
+                    </div>
+                </div>
+                <br>
+                <p>
+                    <button name="submit" id="findRecipe"
+                        class="searchRecipeButton" type="submit">Find
+                        Recipe(s)</button>
+                </p>
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+
+</template>
+
+
+<!--Frist scripts are for rendering the first template, then script give buttons functionality-->
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+        const supportsTemplate = function () {
+            return 'content' in document.createElement('template');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (supportsTemplate()) {
+                console.log('Templates are supported.');
+                let first = document.getElementById('loading template');
+                let content1 = first.content;
+                document.getElementById('append').appendChild(content1);
+            } else {
+                console.log('ffs')
+            }
+        })
+
+
+        //hide both buttons won't work.
+        $(document).on("click", "#search-cal", function () {
+            console.log('calsearch');
+           // $('#pfRecipes').hide;
+            $('#search-tag').hide(); $('#search-cal').hide(); $('#search-ing').hide();
+            let second = document.getElementById('search-temp-cal');
+            let content2 = second.content;
+            document.getElementById('append').appendChild(content2);
+        });
+
+        $(document).on("click", "#search-tag", function () {
+            console.log('tagsearch');
+            //$('#pfRecipes').hide;
+            $('#search-tag').hide(); $('#search-cal').hide(); $('#search-ing').hide();
+            let third = document.getElementById('search-temp-tag');
+            let content3 = third.content;
+            document.getElementById('append').appendChild(content3);
+        });
+
+          $(document).on("click", "#search-ing", function () {
+            console.log('ingsearch');
+            //$('#pfRecipes').hide;
+            $('#search-tag').hide(); $('#search-cal').hide(); $('#search-ing').hide();
+            let fourth = document.getElementById('search-temp-ing');
+            let content4 = fourth.content;
+            document.getElementById('append').appendChild(content4);
+        });
+        
+ </script>

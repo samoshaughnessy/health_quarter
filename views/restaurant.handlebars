@@ -1,0 +1,69 @@
+<script type='text/javascript' src="/js/common.js"></script>
+<script type='text/javascript' src="/js/rest.js"></script>
+
+{{!-- Tag list --}}
+<div class="container d-flex justify-content-center" id="tag-container">
+    {{!-- <span class="tag">tag1</span> --}}
+</div>
+
+{{!-- Hero image --}}
+<div class="container col-12 banner-div">
+    <div class="bannerimage" id="heroImg"></div>
+    <div class="d-flex justify-content-center">
+        <h1 id="restName"></h1>
+    </div>
+</div>
+
+{{!-- Content --}}
+<div class="container d-flex justify-content-center">
+    <div class="col-10">
+
+        {{!-- Restaurant details --}}
+        <div id="rest-detail">
+            <div id="favBtn">
+                <i class="fa" aria-hidden="true"></i>
+                <span></span>
+            </div>
+        </div>
+        
+        <h2 class="heading">POPULAR ITEMS</h2>
+
+        {{!-- Dish list --}}
+        <div class="row dish-row" id="dish-detail"></div>
+
+        {{!-- Meal plan list --}}
+        <div class="row meal-row" id="meal-detail"></div>
+
+        {{!-- Review submission form --}}
+        <h2 class="heading">REVIEWS</h2>
+        <div id="reviewLoginMsg" class="d-flex justify-content-center align-items-center">
+            <h3 class="placeholderMsg">Please <a href="/login">login</a> to submit a review</h3>
+        </div>
+        <form action="/review/:restID" method="post" id="reviewForm">
+            <div class="form-group">
+                <textarea type="text" id="comment" name="comment" cols="30" rows="10" form="reviewForm" placeholder="Write a review"></textarea>
+            </div>
+            <div class="form-group rating-row justify-content-space-between align-items-center">
+                <div style="display:inline-block">
+                    <label><strong>Please rate us: &nbsp;&nbsp;</strong></label>
+                    <div class="rating-group">
+                        <input type="radio" name="rating" value="1"><span>&nbsp;1&nbsp;</span>
+                        <input type="radio" name="rating" value="2"><span>&nbsp;2&nbsp;</span>
+                        <input type="radio" name="rating" value="3"><span>&nbsp;3&nbsp;</span>
+                        <input type="radio" name="rating" value="4"><span>&nbsp;4&nbsp;</span>
+                        <input type="radio" name="rating" value="5" checked="checked"><span>&nbsp;5 stars&nbsp;</span>
+                    </div>
+                </div>
+                <div style="display:inline-block">
+                    <button class="btn btn-primary" type="submit" id="submitReview" value="Submit">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        {{!-- User reviews --}}
+        <div id="rest-review"></div>
+        
+    </div>
+    
+</div>
+

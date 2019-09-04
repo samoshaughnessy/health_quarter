@@ -1,0 +1,87 @@
+<div class="container">
+    <header>
+        <h1><a href="/home">Health Quarter</a></h1>
+        <a href="/delivery">Delivery</a>
+        <a href="/favouriteRest">My Favourites</a>
+        Recipe Finder
+        <a href="/logout">LOGOUT</a>
+    </header>
+
+    <div class="searchingBG">
+
+<table class="table" id="recipe_table">
+    <tr>
+        <th>Recipe Name:</th>
+        <th>Image:</th>
+        <th>Learn more button:</th>
+        <th>Favourite Recipe </th>
+        </tr>
+        </table>
+</div>
+</div>
+
+       
+<script type='text/javascript'>
+
+ let recipes = {{{ data }}};
+
+
+        $.each(recipes, function (key, value) {
+            recipes += '<tr>';
+            recipes += '<td width="25%" class="recipeTitle">' + value.title + '</td>';
+            recipes += '<td><img src=' + value.image + '></td>';
+            recipes += '<td><a class="learnMore" href="https://spoonacular.com/' + value.title + '-' + value.id + '">Learn More</a></td>';
+            recipes += '<td><button class="saveRecipe" type="button" data-id="' + value.title + '-' + value.id + '">Favourite Recipe</button></td>';
+            recipes += '</tr>';
+        });
+        $('#recipe_table').append(recipes);
+
+
+          let actionCounter = 0;
+        $('.saveRecipe').on('click', (e) => {
+            console.log('clicked.')
+             actionCounter++;
+            let recURL = $(e.currentTarget).data('id')
+           
+            console.log(recURL);
+            if (actionCounter === 1) {
+                axios({
+                    method: 'post',
+                    url: '/api/fav/recipes',
+                    data: {
+                        recURL: `${recURL}`
+                    }
+                }).then(() => {
+                    $(e.currentTarget).html("isFav");
+                })
+                console.log(actionCounter);
+            } if (actionCounter === 2) {
+                axios({
+                    method: 'delete',
+                    url: '/api/fav/recipes',
+                    data: {
+                        recURL: `${recURL}`
+                    }
+                }).then(() => {
+                    $(e.currentTarget).html("notFav");
+                })
+                console.log(actionCounter)
+            }
+
+            if (actionCounter === 3) {
+                axios({
+                    method: 'post',
+                    url: '/api/fav/recipes',
+                    data: {
+                        recURL: `${recURL}`
+                    }
+                }).then(() => {
+                    $(e.currentTarget).html("isFav");
+                })
+                console.log(actionCounter)
+                actionCounter = 0;
+                console.log(actionCounter)
+
+            }
+        });
+    </script>

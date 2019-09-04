@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="shortcut icon" type="favicon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    
+    {{!-- For Bootstrap --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    
+    {{!-- Import page title from ViewRouter.js --}}
+    <title>{{title}}</title>
+    
+    {{!-- Import CSS from ViewRouter.js --}}
+    {{#each css}}
+        <link rel="stylesheet" href="../../css/{{this}}" /> 
+    {{/each}}
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    {{!-- For bootstrap --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+    </script>
+    
+    {{!-- Header --}}
+    <header>
+        <div class="topnav" id="myTopnav" name="top">
+            <a href="/" id="logo">HealthQuarter</a>
+            {{!-- <a href="/" id="home" >HOME</a> --}}
+            {{!-- Update tag ID for food after data is fixed --}}
+            <a href="/tag/15">FOOD</a>
+            {{!-- Update tag ID for drinks after data is fixed --}}
+            <a href="/tag/16">DRINKS</a>
+            <a href="/mealplans">MEAL PLANS</a>
+            <a href="/recipeFinder">RECIPES</a>
+            <a href="/favouriteRest" id="favourite">FAVOURITES</a>
+            <a href="/profile" id="profile">PROFILE</a>
+            {{#if loggedIn}}
+            <a href="/logout" id="logout">LOGOUT</a>
+            {{else}}
+            <a href="/signup" id="signup">SIGN UP</a>
+            <a href="/login" id="login">SIGN IN</a>
+            {{/if}}
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+
+    {{{body}}} 
+    
+    {{!-- Footer --}}
+    <footer>
+        <div class="footerwrapper">
+            <div class="a">
+                <a href="/" id="home"><p>HQ</p></a>
+            </div>
+            <div class="b">
+                <p>
+                    {{!-- <a href="/home" id="home">HOME</a> --}}
+                    <a href="/tag/1">FOOD</a> 
+                    <br> <a href="/tag/10">DRINKS</a>
+                    <br> <a href="/mealplans">MEAL PLANS</a>
+                </p>
+            </div>
+            <div class="c">
+                <p>
+                    <a href="/login" id="login">SIGN IN</a>
+                    <br> <a href="" id="signup"></a>
+                    <br>  <a href="/signup" id="signup">SIGN UP</a>
+                </p>
+            </div>
+            <div class="d">
+                <p>
+                    <a href="/profile" id="profile">PROFILE</a>
+                    <br> <a href="/favouriteRest" id="favourite">FAVORITES</a>
+                    <br> <a href="/recipeFinder">RECIPES</a>
+                </p>
+                
+            </div>
+            <div class="e">
+                <p><a href="#top"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></p>
+            </div>
+        </div>
+        <div class="copyright"> &copy HealthQuarter Limited</div>
+
+    </footer>
+</body>
+
+</html>

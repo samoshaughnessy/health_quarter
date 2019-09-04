@@ -1,0 +1,42 @@
+<script type='text/javascript' src="../js/common.js"></script>
+<script type='text/javascript' src="/js/favMeal.js"></script>
+
+<!-- Banner Background Image -->
+<section>
+    <div class="bannerbackground">
+        <div><p>uncover your healthy lifestyle</p></div>
+    </div>
+</section> 
+
+{{!-- Sub menu --}}
+<div class="favwrapper">
+    <div></div>
+    <div class="x">
+        <a href="/favouriteRest">RESTAURANTS</a>
+    </div>
+    <div class="y">
+        <a href="/favouriteDish">DISHES</a>
+    </div>
+    <div class="z">
+        MEAL PLANS
+    </div>
+    <div class="w">
+        <a href="/favouriteRec">RECIPES</a>
+    </div>
+    <div></div>
+</div>
+
+{{!-- Content --}}
+<section class="grid">
+
+    <div class="favtitle">
+        <div>
+            <span>FAVOURITE MEAL PLANS</span>
+        </div>
+    </div>
+
+    <div class="wrapper" id="fav-meal-list">
+        {{!-- favMeal.js > $.get(`/api/fav/meals`) --}}
+    </div>
+
+</section>
