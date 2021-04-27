@@ -33,7 +33,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg": "^7.12.1",
-    "redis": "^2.8.0",
+    "redis": "^3.1.1",
     "require-dir": "^1.2.0",
     "unirest": "^0.6.0"
   }
